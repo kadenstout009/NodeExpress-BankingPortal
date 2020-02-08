@@ -3,7 +3,7 @@ const path = require('path');
 
 const express = require('express');
 const { accounts, users, writeJSON } = require('./data');
-const accountRoutes = require('/routes/accounts');
+const accountRoutes = require('./routes/accounts');
 const servicesRoutes = require('./routes/services');
 const app = express();
 
@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/account', accountRoutes);
-app.use('services', servicesRoutes);
+app.use('/services', servicesRoutes);
 
 app.get('/profile', (req, res) => {
   res.render('profile', { user: users[0] });
